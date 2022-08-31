@@ -685,24 +685,6 @@ exports.init = (_, _renderers) ->
         #TODO Task Status
         createMenuItem 'Shut Down', shutdown
       ]
-    ,
-      createMenu 'Help', [
-        #TODO createMenuItem 'Tour', startTour, yes
-        createMenuItem 'Assist Me', executeCommand 'assist'
-        menuDivider
-        createMenuItem 'Contents', showHelp
-        createMenuItem 'Keyboard Shortcuts', displayKeyboardShortcuts, ['h']
-        menuDivider
-        createMenuItem 'Documentation', displayDocumentation
-        createMenuItem 'FAQ', displayFAQ
-        createMenuItem 'H2O.ai', goToUrl 'http://h2o.ai/'
-        createMenuItem 'H2O on Github', goToUrl 'https://github.com/h2oai/h2o-3'
-        createMenuItem 'Report an issue', goToUrl 'http://jira.h2o.ai'
-        createMenuItem 'Forum / Ask a question', goToUrl 'https://groups.google.com/d/forum/h2ostream'
-        menuDivider
-        #TODO Tutorial Flows
-        createMenuItem 'About', displayAbout
-      ]
     ]
 
   setupMenus = ->
