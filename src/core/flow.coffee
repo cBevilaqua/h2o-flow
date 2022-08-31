@@ -11,24 +11,13 @@
 application = require('./modules/application')
 context = require("./modules/application-context")
 h2oApplication = require('../ext/modules/application')
+util = require('../ext/modules/util')
 
 ko = require('./modules/knockout')
 
-getZooxEyeToken = () ->
-    params = new URLSearchParams(window.location.search)
-    token = null
-    urlToken = params.get('zooxeye-token')
-    localStorageToken = localStorage.getItem('zooxeyeToken')
-    if urlToken
-      localStorage.setItem('zooxeyeToken', urlToken)
-      return urlToken
-    else if localStorageToken
-      return localStorageToken
-    return null
-
 $.ajaxSetup
     beforeSend: (xhr, settings) ->
-      token = getZooxEyeToken()
+      token = util.getZooxEyeToken()
       xhr.setRequestHeader("Authorization", "Bearer #{token}")
 
 getContextPath = (_) ->

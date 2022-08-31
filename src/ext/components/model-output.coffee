@@ -764,13 +764,13 @@ module.exports = (_, _go, _model, refresh) ->
           _pojoPreview "<pre>#{util.highlight result, 'java'}</pre>"
 
     downloadPojo = ->
-      window.open _.ContextPath + "3/Models.java/#{encodeURIComponent _model.model_id.name}", '_blank'
+      window.open _.ContextPath + "3/Models.java/#{encodeURIComponent _model.model_id.name}?zooxeye-token=Bearer #{util.getZooxEyeToken()}", '_blank'
 
     downloadGenJar = ->
-      window.open _.ContextPath + "3/h2o-genmodel.jar",'_blank'
+      window.open _.ContextPath + "3/h2o-genmodel.jar?zooxeye-token=Bearer #{util.getZooxEyeToken()}",'_blank'
 
     downloadMojo = ->
-      window.open _.ContextPath + "3/Models/#{encodeURIComponent _model.model_id.name}/mojo", '_blank'
+      window.open _.ContextPath + "3/Models/#{encodeURIComponent _model.model_id.name}/mojo?zooxeye-token=Bearer #{util.getZooxEyeToken()}", '_blank'
 
     exportModel = ->
       _.insertAndExecuteCell 'cs', "exportModel #{stringify _model.model_id.name}"

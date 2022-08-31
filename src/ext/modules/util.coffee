@@ -23,8 +23,21 @@ decryptPassword = (encrypted) ->
   passwordBytes = aesCtr.decrypt encryptedBytes
   aesjs.utils.utf8.fromBytes passwordBytes
 
+getZooxEyeToken = () ->
+  params = new URLSearchParams(window.location.search)
+  token = null
+  urlToken = params.get('zooxeye-token')
+  localStorageToken = localStorage.getItem('zooxeyeToken')
+  if urlToken
+    localStorage.setItem('zooxeyeToken', urlToken)
+    return urlToken
+  else if localStorageToken
+    return localStorageToken
+  return null
+
 module.exports =
   validateFileExtension: validateFileExtension
   getFileBaseName: getFileBaseName
   encryptPassword: encryptPassword
   decryptPassword: decryptPassword
+  getZooxEyeToken: getZooxEyeToken
