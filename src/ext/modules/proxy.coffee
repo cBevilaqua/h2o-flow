@@ -29,7 +29,24 @@ exports.init = (_) ->
     else
       ''
 
-  $.ajaxSetup converters: { "text json": JSONbig.parse }
+  getZooxEyeToken = () ->
+    params = new URLSearchParams(window.location.search)
+    token = null
+    urlToken = params.get('zooxeye-token')
+    localStorageToken = localStorage.getItem('zooxeyeToken')
+    if urlToken
+      localStorage.setItem('zooxeyeToken', urlToken)
+      return urlToken
+    else if localStorageToken
+      return localStorageToken
+    return null
+
+  #$.ajaxSetup converters: { "text json": JSONbig.parse }
+  $.ajaxSetup
+    beforeSend: (xhr, settings) ->
+      token = getZooxEyeToken()
+      xhr.setRequestHeader("Authorization", "Bearer #{token}")
+    converters: { "text json": JSONbig.parse }
 
   http = (method, path, opts, go) ->
     if path.substring(0,1) == "/"

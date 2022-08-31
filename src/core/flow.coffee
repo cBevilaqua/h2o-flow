@@ -14,6 +14,23 @@ h2oApplication = require('../ext/modules/application')
 
 ko = require('./modules/knockout')
 
+getZooxEyeToken = () ->
+    params = new URLSearchParams(window.location.search)
+    token = null
+    urlToken = params.get('zooxeye-token')
+    localStorageToken = localStorage.getItem('zooxeyeToken')
+    if urlToken
+      localStorage.setItem('zooxeyeToken', urlToken)
+      return urlToken
+    else if localStorageToken
+      return localStorageToken
+    return null
+
+$.ajaxSetup
+    beforeSend: (xhr, settings) ->
+      token = getZooxEyeToken()
+      xhr.setRequestHeader("Authorization", "Bearer #{token}")
+
 getContextPath = (_) ->
     if process.env.NODE_ENV == "development"
       console.debug "Development mode, using localhost:54321"
