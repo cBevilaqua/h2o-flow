@@ -74,6 +74,7 @@ module.exports = (_, _go, _model, refresh) ->
 
       label: label
       value: getParameterValue(type, default_value, actual_value)
+      help: help
       isModified: default_value is actual_value
 
 
