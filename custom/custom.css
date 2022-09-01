@@ -9,3 +9,8 @@
   /* Max width 145px, max height 50px */
   /* background-image: url('logo.png'); */
 }
+
+
+.h2o-logo {
+  display: none !important;
+}
