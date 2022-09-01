@@ -3,6 +3,7 @@
 { stringify } = require('../../core/modules/prelude')
 { act, react, lift, link, signal, signals } = require("../../core/modules/dataflow")
 util = require('../../core/modules/util')
+utilExt = require('../modules/util')
 lightning = require('../../core/modules/lightning')
 
 getParameterValue = (type, default_value, actual_value) ->
@@ -764,13 +765,13 @@ module.exports = (_, _go, _model, refresh) ->
           _pojoPreview "<pre>#{util.highlight result, 'java'}</pre>"
 
     downloadPojo = ->
-      window.open _.ContextPath + "3/Models.java/#{encodeURIComponent _model.model_id.name}?zooxeye-token=Bearer #{util.getZooxEyeToken()}", '_blank'
+      window.open _.ContextPath + "3/Models.java/#{encodeURIComponent _model.model_id.name}?zooxeye-token=Bearer #{utilExt.getZooxEyeToken()}", '_blank'
 
     downloadGenJar = ->
-      window.open _.ContextPath + "3/h2o-genmodel.jar?zooxeye-token=Bearer #{util.getZooxEyeToken()}",'_blank'
+      window.open _.ContextPath + "3/h2o-genmodel.jar?zooxeye-token=Bearer #{utilExt.getZooxEyeToken()}",'_blank'
 
     downloadMojo = ->
-      window.open _.ContextPath + "3/Models/#{encodeURIComponent _model.model_id.name}/mojo?zooxeye-token=Bearer #{util.getZooxEyeToken()}", '_blank'
+      window.open _.ContextPath + "3/Models/#{encodeURIComponent _model.model_id.name}/mojo", '_blank'
 
     exportModel = ->
       _.insertAndExecuteCell 'cs', "exportModel #{stringify _model.model_id.name}"

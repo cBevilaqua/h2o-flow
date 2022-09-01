@@ -3,6 +3,7 @@
 { stringify } = require('../../core/modules/prelude')
 { react, lift, link, signal, signals } = require("../../core/modules/dataflow")
 util = require('../../core/modules/util')
+utilExt = require('../modules/util')
 
 module.exports = (_, _go, _frame) ->
   MaxItemsPerPage = 20
@@ -59,7 +60,7 @@ module.exports = (_, _go, _frame) ->
     _.insertAndExecuteCell 'cs', "predict frame: #{stringify _frame.frame_id.name}"
 
   download = ->
-    window.open _.ContextPath + "3/DownloadDataset?frame_id=#{encodeURIComponent _frame.frame_id.name}&zooxeye-token=Bearer #{util.getZooxEyeToken()}", '_blank'
+    window.open _.ContextPath + "3/DownloadDataset?frame_id=#{encodeURIComponent _frame.frame_id.name}&zooxeye-token=Bearer #{utilExt.getZooxEyeToken()}", '_blank'
 
   exportFrame = ->
     _.insertAndExecuteCell 'cs', "exportFrame #{stringify _frame.frame_id.name}"
