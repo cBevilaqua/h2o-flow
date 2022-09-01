@@ -14986,3 +14986,7 @@ td:hover > .tooltip-tooltip > .tooltip-text {
   /* background-image: url('logo.png'); */
 }
 
+
+.h2o-logo {
+  display: none !important;
+}
