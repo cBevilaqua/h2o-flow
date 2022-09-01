@@ -27,13 +27,12 @@
           <!-- ko with:sidebar-->
 <div class="flow-sidebar">
   <div class="flow-sidebar-header">
-    <div class="flow-tabs flow-pointer"><span class="flow-tab" data-bind="css:{'active':isOutlineMode}, click:switchToOutline">Outline</span><span class="flow-tab" data-bind="css:{'active':isBrowserMode}, click:switchToBrowser">Flows</span><span class="flow-tab" data-bind="css:{'active':isClipboardMode}, click:switchToClipboard">Clips</span><span class="flow-tab" data-bind="css:{'active':isHelpMode}, click:switchToHelp">Help</span></div>
+    <div class="flow-tabs flow-pointer"><span class="flow-tab" data-bind="css:{'active':isOutlineMode}, click:switchToOutline">Outline</span><span class="flow-tab" data-bind="css:{'active':isBrowserMode}, click:switchToBrowser">Flows</span><span class="flow-tab" data-bind="css:{'active':isClipboardMode}, click:switchToClipboard">Clips</span></div>
   </div>
   <div class="flow-sidebar-body">
     <div data-bind="template:{ name:'flow-outline', data:outline}, visible:isOutlineMode"></div>
     <div data-bind="template:{ name:'flow-browser', data:browser}, visible:isBrowserMode"></div>
     <div data-bind="template:{ name:'flow-clipboard', data:clipboard}, visible:isClipboardMode"></div>
-    <div data-bind="template:{ name:'flow-help', data:help}, visible:isHelpMode"></div>
   </div>
 </div>
           <!-- /ko-->
@@ -231,13 +230,12 @@
     <script type="text/html" id="flow-sidebar">
 <div class="flow-sidebar">
   <div class="flow-sidebar-header">
-    <div class="flow-tabs flow-pointer"><span class="flow-tab" data-bind="css:{'active':isOutlineMode}, click:switchToOutline">Outline</span><span class="flow-tab" data-bind="css:{'active':isBrowserMode}, click:switchToBrowser">Flows</span><span class="flow-tab" data-bind="css:{'active':isClipboardMode}, click:switchToClipboard">Clips</span><span class="flow-tab" data-bind="css:{'active':isHelpMode}, click:switchToHelp">Help</span></div>
+    <div class="flow-tabs flow-pointer"><span class="flow-tab" data-bind="css:{'active':isOutlineMode}, click:switchToOutline">Outline</span><span class="flow-tab" data-bind="css:{'active':isBrowserMode}, click:switchToBrowser">Flows</span><span class="flow-tab" data-bind="css:{'active':isClipboardMode}, click:switchToClipboard">Clips</span></div>
   </div>
   <div class="flow-sidebar-body">
     <div data-bind="template:{ name:'flow-outline', data:outline}, visible:isOutlineMode"></div>
     <div data-bind="template:{ name:'flow-browser', data:browser}, visible:isBrowserMode"></div>
     <div data-bind="template:{ name:'flow-clipboard', data:clipboard}, visible:isClipboardMode"></div>
-    <div data-bind="template:{ name:'flow-help', data:help}, visible:isHelpMode"></div>
   </div>
 </div>
     </script>
